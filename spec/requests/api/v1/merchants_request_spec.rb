@@ -60,7 +60,20 @@ RSpec.describe 'Merchants API' do
   describe 'sad path & edge cases' do
     xit 'doesnt send unnecessary info' do
     end
-    xit 'sad path, bad integer id returns 404' do
+
+    it 'sad path, bad integer id returns 404' do
+      merchant = create :merchant
+      invalid_id = merchant.id + 1
+
+      get "/api/v1/merchants/#{invalid_id}"
+
+      parsed_response = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+      expect(parsed_response).to have_key :errors
+      expect(parsed_response[:errors]).to have_key :message
+      expect(parsed_response[:errors][:message]).to eq("This merchant id does not exist")
     end
   end
 end
