@@ -125,19 +125,20 @@ RSpec.describe 'Items API' do
     expect(Item.count).to eq(0)
     expect(response.status).to eq(204)
   end
-    it 'sad path, bad integer id returns 404' do
-      merchant = create :merchant
-      item = create :item, { merchant_id: merchant.id }
-      invalid_id = item.id + 1
 
-      get "/api/v1/items/#{invalid_id}"
+  it 'sad path, bad integer id returns 404' do
+    merchant = create :merchant
+    item = create :item, { merchant_id: merchant.id }
+    invalid_id = item.id + 1
 
-      parsed_response = JSON.parse(response.body, symbolize_names: true)
+    get "/api/v1/items/#{invalid_id}"
 
-      expect(response).to_not be_successful
-      expect(response.status).to eq(404)
-      expect(parsed_response).to have_key :errors
-      expect(parsed_response[:errors]).to have_key :message
-      expect(parsed_response[:errors][:message]).to eq("This item id does not exist")
+    parsed_response = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).to_not be_successful
+    expect(response.status).to eq(404)
+    expect(parsed_response).to have_key :errors
+    expect(parsed_response[:errors]).to have_key :message
+    expect(parsed_response[:errors][:message]).to eq("This item id does not exist")
   end
 end
