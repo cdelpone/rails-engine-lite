@@ -2,7 +2,7 @@ require 'rails_helper'
 # ber spec/requests/api/v1/items/find_all_request_spec.rb
 RSpec.describe 'Find All Items API' do
   context 'happy paths' do
-    it 'Finds all items by name fragment, fetch all items matching a pattern' do
+    it 'fetch all items matching a pattern' do
       merchant1 = create(:merchant)
       item1 = create :item, { name: "this item has a name", merchant_id: merchant1.id }
       item2 = create :item, { name: "The BEST name", merchant_id: merchant1.id }
@@ -42,7 +42,7 @@ RSpec.describe 'Find All Items API' do
   end
 
   context 'sad paths' do
-    it 'Finds all items by name fragment, no fragment matched' do
+    it 'no fragment matched' do
       merchant1 = create(:merchant)
       item1 = create :item, { name: "this item has a name", merchant_id: merchant1.id }
       item2 = create :item, { name: "The BEST name", merchant_id: merchant1.id }

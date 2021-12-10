@@ -4,7 +4,11 @@ class Api::V1::Merchants::FindController < ApplicationController
       merchant = Merchant.search_by_name(params[:name])
       render json: MerchantSerializer.new(merchant)
     else
-      render json: {:errors=>{:message=>"Looks like something is missing"}}, status: 400
+      render json: {
+                    errors: {
+                            message: "Looks like something is missing"
+                            }
+                    }, status: 400
     end
   end
 end

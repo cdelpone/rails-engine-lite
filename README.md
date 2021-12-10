@@ -4,6 +4,7 @@
 ## Table of Contents
 - [Overview](#overview)
 - [Setup](#setup)
+- [Endpoints](#endpoints)
 - [Technologies](#technologies)
 - [Contributors](#contributors)
 
@@ -30,6 +31,38 @@ Run test suite:
 
  `bundle exec rspec`
 
+### <ins>Endpoints</ins>
+
+<b><u>Merchant Endpoints</u></b><br>
+GET `/api/v1/merchants/:id`<br>
+GET `/api/v1/merchants`<br>
+
+<b><u>Item Endpoints</u></b><br>
+GET `/api/v1/items`<br>
+GET `/api/v1/items/:id`<br>
+POST `/api/v1/items`<br>
+PATCH `/api/v1/items/:id`<br>
+DELETE `/api/v1/items/:id`<br>
+
+<b><u>Relationship Endpoints</u></b><br>
+GET `/api/v1/merchants/:id/items`<br>
+GET `/api/v1/items/:id/merchant`<br>
+
+<b>Serialized Output</b><br>
+•	 GET `/api/v1/merchants/#{merchant.id}/items`<br>
+<b>Serialized Output</b><br>
+•	 GET `/api/v1/items/#{item.id}/merchant`<br>
+
+<b><u>Search Endpoints</u></b><br>
+GET `/api/vi/items/find_all`<br>
+GET `/api/vi/merchants/find`<br>
+
+<b>Serialized Output</b></b><br>
+•	 GET `/api/v1/items/find_all?name=#{query_param}`<br>
+<b>Serialized Output</b><br>
+•	GET `/api/v1/merchants/find?name=#{query_param}`<br>
+
+
 ### <ins>Technologies</ins>
 
 #### Versions
@@ -55,6 +88,9 @@ Run test suite:
 ![RSPEC][RSPEC-img]
 ![Shoulda Matchers][Shoulda Matchers-img]
 ![Simplecov][Simplecov-img]
+
+#### Dependencies
+gem 'jsonapi-serializer'
 
 #### Development Principles
 ![OOP][OOP-img]

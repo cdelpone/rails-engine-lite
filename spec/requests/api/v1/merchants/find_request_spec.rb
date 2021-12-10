@@ -37,7 +37,7 @@ RSpec.describe 'Find One Merchant API' do
   end
 
   context 'sad paths' do
-    it 'sad path, no fragment matched returns empty object' do
+    it 'no fragment matched returns empty object' do
       merchant1 = create :merchant, { name: "this merchant has a name" }
       merchant2 = create :merchant, { name: "The best name" }
       merchant3 = create :merchant, { name: "The worst name" }
@@ -127,7 +127,7 @@ RSpec.describe 'Find One Merchant API' do
       merchant3 = create :merchant, { name: "The worst name" }
 
       search_name = "rst"
-      
+
       get "/api/v1/merchants/find?name=#{search_name}"
 
       worst_merchant = JSON.parse(response.body, symbolize_names: true)

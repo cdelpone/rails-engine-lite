@@ -142,27 +142,27 @@ RSpec.describe 'Items API' do
     expect(parsed_response[:errors][:message]).to eq("This item id does not exist")
   end
 
-  xit 'edge case, when updating an item, bad merchant id returns 400 or 404' do
-    merchant = create :merchant
-    id = create(:item).id
-    previous_item = create :item, { merchant_id: merchant.id }
-    previous_item = Item.last.name
-
-    item_params = { name: "worst item", merchant_id: "sfj" }
-    headers = {"CONTENT_TYPE" => "application/json"}
-
-    patch "/api/v1/items/#{id}", headers: headers, params: JSON.generate({item: item_params})
-
-    updated_item = Item.find_by(id: id)
-    expect(updated_item.name).to_not eq(previous_item)
-    expect(updated_item.name).to eq("worst item")
-
-    parsed_response = JSON.parse(response.body, symbolize_names: true)
-
-    expect(response).to_not be_successful
-    expect(response.status).to eq(404)
-    expect(parsed_response).to have_key :errors
-    expect(parsed_response[:errors]).to have_key :message
-    expect(parsed_response[:errors][:message]).to eq("This item id does not exist")
-  end
+  # it 'edge case, when updating an item, bad merchant id returns 400 or 404' do
+  #   merchant = create :merchant
+  #   id = create(:item).id
+  #   previous_item = create :item, { merchant_id: merchant.id }
+  #   previous_item = Item.last.name
+  #
+  #   item_params = { name: "worst item", merchant_id: "sfj" }
+  #   headers = {"CONTENT_TYPE" => "application/json"}
+  #
+  #   patch "/api/v1/items/#{id}", headers: headers, params: JSON.generate({item: item_params})
+  #
+  #   updated_item = Item.find_by(id: id)
+  #   expect(updated_item.name).to_not eq(previous_item)
+  #   expect(updated_item.name).to eq("worst item")
+  #
+  #   parsed_response = JSON.parse(response.body, symbolize_names: true)
+  #
+  #   expect(response).to_not be_successful
+  #   expect(response.status).to eq(404)
+  #   expect(parsed_response).to have_key :errors
+  #   expect(parsed_response[:errors]).to have_key :message
+  #   expect(parsed_response[:errors][:message]).to eq("This item id does not exist")
+  # end
 end
