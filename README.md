@@ -1,16 +1,7 @@
-Things you may want to cover:
-* Ruby version
-* System dependencies
-* Configuration
-* Database creation
-* Database initialization
-* How to run the test suite
-* Services (job queues, cache servers, search engines, etc.)
-* Deployment instructions
-* ...
 # [Rails Engine Lite](https://github.com/cdelpone/rails-engine-lite)
+<hr>
 
-## Table of contents
+## Table of Contents
 - [Overview](#overview)
 - [Setup](#setup)
 - [Technologies](#technologies)
@@ -18,22 +9,26 @@ Things you may want to cover:
 
 ### <ins>Overview</ins>
 
-# Rails Engine Lite
-An API for a ficticious business.
+An API for a fictitious business.
 
 The project spec can be found [here](https://backend.turing.edu/module3/projects/rails_engine_lite/)
 
 ### <ins>Setup</ins>
-1. Fork and Clone the repo:
-- `git clone git@github.com:cdelpone/rails-engine-lite.git`
-2. Install gem packages:
--  `bundle install`
-3. Setup the database:
-- `rails db:{drop,create,migrate,seed}`
+Fork and clone the repo:
 
-Test Suite
-Run `bundle exec rspec`
+`git clone git@github.com:cdelpone/rails-engine-lite.git`
 
+Install gem packages:
+
+`bundle install`
+
+Setup the database:
+
+`rails db:{drop,create,migrate,seed}`
+
+Run test suite:
+
+ `bundle exec rspec`
 
 ### <ins>Technologies</ins>
 
@@ -71,7 +66,6 @@ Run `bundle exec rspec`
 ![LinkedIn][LinkedIn-img] [Christina Delpone](https://www.linkedin.com/in/christinadelpone)
 
 ![Github][Github-img] [Christina Delpone](https://github.com/cdelpone)
-
 
 <!-- Markdown link & img dfn's -->
 [Github-img]: https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white
