@@ -58,9 +58,6 @@ RSpec.describe 'Merchants API' do
   end
 
   describe 'sad path & edge cases' do
-    xit 'doesnt send unnecessary info' do
-    end
-
     it 'sad path, bad integer id returns 404' do
       merchant = create :merchant
       invalid_id = merchant.id + 1
