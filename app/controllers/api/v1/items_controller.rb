@@ -4,8 +4,6 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def show
-    # item = Item.find(params[:id])
-    # if item
     if Item.exists?(params[:id])
       item = Item.find(params[:id])
       render json: ItemSerializer.new(item)
@@ -32,11 +30,5 @@ class Api::V1::ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :description, :unit_price, :merchant_id)
-  end
-
-  def invalid_params
-    if params[:merchant_id].class == String
-      render json: { error: 'Bad Request' }, status: 400
-    end
   end
 end
